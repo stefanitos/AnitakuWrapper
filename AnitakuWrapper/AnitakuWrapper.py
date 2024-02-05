@@ -33,7 +33,7 @@ class AnitakuWrapper:
                 options: "ONGOING", "UPCOMING", "COMPLETED"
 
         Returns:
-        list: a list of dictionaries containing the name, url, full_url, href, and image of the anime.
+        list: Dictionaries containing the name, url, full_url, href, and image of the anime.
         """
 
         if filters is None:
