@@ -28,7 +28,7 @@ class AnitakuWrapper:
         Searches the Anitaku website for the specified anime name and returns a list of anime names and urls.
 
         Parameters:
-        anime_name (str): the name of the anime to search for.
+        anime_name (str): The name of the anime to search for.
         filters (list): a list of filters to apply to the search. Defaults to ongoing and upcoming anime.
                 options: "ONGOING", "UPCOMING", "COMPLETED"
 
