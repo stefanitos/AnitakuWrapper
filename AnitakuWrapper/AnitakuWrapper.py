@@ -100,11 +100,16 @@ class AnitakuWrapper:
 
         soup = BeautifulSoup(data, "lxml")
         try:
-            status_div = soup.find("div", {"class": "anime_info_body_bg"}).find_all("p")[5]
+            status_div = soup.find("div", {"class": "anime_info_body_bg"})
+            status_div = status_div.find_all("p")
+            # Get the element after the <span>Status: </span> element
+            status = next(
+                p.find("a").text for p in status_div if "Status" in p.text
+            )
+            print(status)
         except AttributeError:
             return None
-
-        return status_div.find("a").text
+        return status
 
     async def has_episode_zero(self, anime_url):
         """
