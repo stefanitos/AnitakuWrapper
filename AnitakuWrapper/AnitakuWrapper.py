@@ -106,7 +106,6 @@ class AnitakuWrapper:
             status = next(
                 p.find("a").text for p in status_div if "Status" in p.text
             )
-            print(status)
         except AttributeError:
             return None
         return status
