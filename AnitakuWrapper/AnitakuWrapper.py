@@ -28,7 +28,7 @@ class AnitakuWrapper:
         Searches the Anitaku website for the specified anime name and returns a list of anime names and urls.
 
         Parameters:
-        anime_name (str): the name of the anime to search for.
+        anime_name (str): The name of the anime to search for.
         filters (list): a list of filters to apply to the search. Defaults to ongoing and upcoming anime.
                 options: "ONGOING", "UPCOMING", "COMPLETED"
 
@@ -100,11 +100,15 @@ class AnitakuWrapper:
 
         soup = BeautifulSoup(data, "lxml")
         try:
-            status_div = soup.find("div", {"class": "anime_info_body_bg"}).find_all("p")[5]
+            status_div = soup.find("div", {"class": "anime_info_body_bg"})
+            status_div = status_div.find_all("p")
+            # Get the element after the <span>Status: </span> element
+            status = next(
+                p.find("a").text for p in status_div if "Status" in p.text
+            )
         except AttributeError:
             return None
-
-        return status_div.find("a").text
+        return status
 
     async def has_episode_zero(self, anime_url):
         """
