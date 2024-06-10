@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 class AnitakuWrapper:
     def __init__(self):
-        self.BASE_URL = "https://anitaku.to/"
+        self.BASE_URL = "https://anitaku.so/"
 
         self.SEARCH_URL = f"{self.BASE_URL}/filter.html?keyword="
 
